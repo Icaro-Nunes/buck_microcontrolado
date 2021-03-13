@@ -22,63 +22,54 @@
  */
  
 
-unsigned char valor = 0;
+unsigned char valor = 127;
 
 //int teste = 0;
 
 int ciclos = 0;
 
+int lastRead = 0;
+
 void setup(){
   //start serial connection
   Serial.begin(9600);
-  //configure pin2 as an input and enable the internal pull-up resistor
-  //pinMode(18, INPUT_PULLUP);
-  //pinMode(19, INPUT_PULLUP);
-  
-  //pinMode(13, OUTPUT); 
   
   DDRC = 0;
   DDRB = B11111111;
+
   DDRD = B11111111;
 }
 
 void loop(){
-  //read the pushbutton value into a variable
-//  int sensorUp = digitalRead(18);
-//  int sensorDown = digitalRead(19);
-
   if(ciclos == 10){
     ciclos = 0;
     char leitura = PINC;
-   
-  /*  if(ciclos == 50){
-        teste = (teste ^ 1) & 1;
     
-        PORTD = teste;
+    
+    if(leitura & lastRead){
+      if (leitura & B00000001) {
+        if(valor <255){
+          valor++;
+        }
         
-        ciclos = 0;
-    } */
-    
-    
-    if (leitura & B00100000) {
-      if(valor <255){
-        valor++;
-      }
-      PORTB = valor;
-    } 
-    
-    if(leitura & B00010000) {
+        PORTD = valor;
+      } 
       
-      if(valor>0){
-        valor--;
+      if(leitura & B00000010) {
+        
+        if(valor>0){
+          valor--;
+        }
+        
+        PORTD = valor;
+        
+        analogWrite(9, valor);
       }
-      
-      PORTB = valor;
     }
-    
   //  Serial.println(teste);
     Serial.println(valor, BIN);
     
+    lastRead = leitura;
   }
 
     ciclos++;
