@@ -1,9 +1,9 @@
 # Conversor Buck Microcontrolado
-Este foi meu projeto de conclusão das matérias de Microcontroladores e Prototipação de Sistemas Eletrônicos no curso Técnico em Eletrônica. O assignment se baseava em, dado um esquemático de conversor buck microcontrolado que nosso grupo recebeu: 
+Este foi meu projeto de conclusão das matérias de Microcontroladores e Prototipação de Sistemas Eletrônicos no curso Técnico em Eletrônica. O assignment se baseava em, dado um esquemático de conversor buck microcontrolado que nossa equipe recebeu: 
 - Substituir o microcontrolador do projeto por um ATMEGA328;
 - Adicionar um display com a medida  de tensão de saída;
 - Realizar as adequações necessárias dos componentes do circuito para ter compatibilidade com as características elétricas do novo MCU, projetando uma PCI para o circuito; 
-- Montar e executar uma simulação utilizando um simulador chamado CADe Simu
+- Montar e executar uma simulação utilizando um simulador chamado SimulIDE
 
 Este repositório contém apenas o material da simulação, que é a parte do projeto que envolveu programação. 
 
